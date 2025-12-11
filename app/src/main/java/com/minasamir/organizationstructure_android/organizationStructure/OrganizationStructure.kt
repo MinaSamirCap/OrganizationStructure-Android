@@ -18,7 +18,7 @@ fun OrganizationStructure(
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .horizontalScroll(rememberScrollState())
             .padding(horizontal = 16.dp)
@@ -65,6 +65,14 @@ fun flattenHierarchy(
 @Composable
 @Preview
 private fun OrganizationStructurePreview() {
+    OrganizationStructureAndroidTheme {
+        OrganizationStructure()
+    }
+}
+
+@Composable
+@Preview(locale = "ar")
+private fun OrganizationStructureArPreview() {
     OrganizationStructureAndroidTheme {
         OrganizationStructure()
     }

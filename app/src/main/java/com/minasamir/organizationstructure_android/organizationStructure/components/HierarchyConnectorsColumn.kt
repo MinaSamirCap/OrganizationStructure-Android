@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.minasamir.organizationstructure_android.organizationStructure.EmployeeUiModel
 import com.minasamir.organizationstructure_android.organizationStructure.complexEmployees
+import com.minasamir.organizationstructure_android.organizationStructure.isRTL
 import com.minasamir.organizationstructure_android.organizationStructure.iterateAndChange
 import com.minasamir.organizationstructure_android.ui.theme.OrganizationStructureAndroidTheme
 
@@ -27,6 +28,7 @@ fun HierarchyConnectorsColumn(
 ) {
 
     var counter = 0
+    val isRTL = isRTL()
 
     Row {
         for (i in 0 until depth) {
@@ -47,19 +49,37 @@ fun HierarchyConnectorsColumn(
                                 .width(80.dp)    // Changed from .height()
                         ) {
                             // HORIZONTAL line: Keep Y constant, change X
-                            drawLine(
-                                color = Color(0xFFCCCCCC),
-                                start = Offset(
-                                    size.width / 2,
-                                    size.height / 2
-                                ),      // Left side, middle height
-                                end = Offset(
-                                    size.width,
-                                    size.height / 2
-                                ), // Right side, middle height
-                                strokeWidth = 1.dp.toPx(),
-                                pathEffect = PathEffect.dashPathEffect(floatArrayOf(15f, 10f), 0f)
-                            )
+                            if (isRTL) {
+                                drawLine(
+                                    color = Color(0xFFCCCCCC),
+                                    start = Offset(-size.width, size.height / 2),      // Child side
+                                    end = Offset(size.width / 2, size.height / 2),
+                                    strokeWidth = 1.dp.toPx(),
+                                    pathEffect = PathEffect.dashPathEffect(
+                                        floatArrayOf(15f, 10f),
+                                        0f
+                                    )
+                                )
+                            } else {
+                                drawLine(
+                                    color = Color(0xFFCCCCCC),
+                                    start = Offset(
+                                        size.width / 2,
+                                        size.height / 2
+                                    ),      // Left side, middle height
+                                    end = Offset(
+                                        size.width,
+                                        size.height / 2
+                                    ), // Right side, middle height
+                                    strokeWidth = 1.dp.toPx(),
+                                    pathEffect = PathEffect.dashPathEffect(
+                                        floatArrayOf(15f, 10f),
+                                        0f
+                                    )
+                                )
+                            }
+
+
                         }
                     }
                 }
@@ -90,9 +110,6 @@ fun HierarchyConnectorsColumn(
                             )
                         }
                     }
-//                    employee.children.forEach {
-//                        it.doNotDraw.add(depth - 1)
-//                    }
                     iterateAndChange(employee, depth - 1)
 
                 } else {
@@ -158,6 +175,33 @@ fun HierarchyConnectorsColumn(
 @Composable
 @Preview
 private fun HierarchyConnectorsColumnPreview() {
+    OrganizationStructureAndroidTheme {
+        Column {
+            HierarchyConnectorsColumn(
+                depth = 0,
+                isLastChild = false,
+                employee = complexEmployees.first()
+            )
+
+            HierarchyConnectorsColumn(
+                depth = 1,
+                isLastChild = false,
+                employee = complexEmployees.first()
+            )
+
+            HierarchyConnectorsColumn(
+                depth = 2,
+                isLastChild = false,
+                employee = complexEmployees.first()
+            )
+        }
+    }
+}
+
+
+@Composable
+@Preview(locale = "ar")
+private fun HierarchyConnectorsColumnArPreview() {
     OrganizationStructureAndroidTheme {
         Column {
             HierarchyConnectorsColumn(
