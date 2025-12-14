@@ -24,7 +24,7 @@ fun OrganizationStructure(
             .padding(horizontal = 16.dp)
     ) {
         // Use items directly with flat list
-        items(flattenHierarchy(simpleEmployees)) { employee ->
+        items(flattenHierarchy(complexEmployees)) { employee ->
             HierarchicalEmployeeItem(
                 employee = employee.item,
                 depth = employee.depth,
@@ -35,14 +35,14 @@ fun OrganizationStructure(
 }
 
 // Data class to hold flattened hierarchy info
-data class FlattenedEmployee(
+private data class FlattenedEmployee(
     val item: EmployeeUiModel,
     val depth: Int,
     val isLastInSiblingGroup: Boolean
 )
 
 // Function to flatten hierarchy with depth information
-fun flattenHierarchy(
+private fun flattenHierarchy(
     employees: List<EmployeeUiModel>,
     depth: Int = 0
 ): List<FlattenedEmployee> {
