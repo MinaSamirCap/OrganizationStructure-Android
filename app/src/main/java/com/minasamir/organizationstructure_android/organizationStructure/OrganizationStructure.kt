@@ -24,7 +24,7 @@ fun OrganizationStructure(
             .padding(horizontal = 16.dp)
     ) {
         // Use items directly with flat list
-        items(flattenHierarchy(complexEmployees)) { employee ->
+        items(flattenHierarchy(simpleEmployees)) { employee ->
             HierarchicalEmployeeItem(
                 employee = employee.item,
                 depth = employee.depth,
