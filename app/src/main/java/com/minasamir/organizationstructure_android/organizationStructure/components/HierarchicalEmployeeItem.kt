@@ -10,6 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.minasamir.organizationstructure_android.organizationStructure.EmployeeUiModel
 import com.minasamir.organizationstructure_android.organizationStructure.complexEmployees
+import com.minasamir.organizationstructure_android.organizationStructure.components.connectors.HierarchyConnectors
 import com.minasamir.organizationstructure_android.organizationStructure.components.details.EmployeeDetails
 import com.minasamir.organizationstructure_android.ui.theme.OrganizationStructureAndroidTheme
 
@@ -24,7 +25,7 @@ fun HierarchicalEmployeeItem(
             .fillMaxWidth()
     ) {
         // Left column for hierarchy lines and badge
-        HierarchyConnectorsColumn(
+        HierarchyConnectors(
             depth = depth,
             isLastChild = isLastInSiblingGroup,
             employee = employee
