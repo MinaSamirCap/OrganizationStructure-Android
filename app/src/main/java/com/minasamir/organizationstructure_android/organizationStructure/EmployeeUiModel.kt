@@ -9,14 +9,14 @@ data class EmployeeUiModel(
     val position: String,
     val location: String,
     val children: List<EmployeeUiModel> = emptyList(),
-    var doNotDraw: MutableList<Int> = mutableListOf()
+    var doNotDrawDepth: MutableList<Int> = mutableListOf()
 )
 
-fun iterateAndChange(model: EmployeeUiModel, depth: Int) {
+fun markDepthToBeNotDrawn(model: EmployeeUiModel, depth: Int) {
     if (model.children.isNotEmpty()) {
         for (child in model.children) {
-            child.doNotDraw.add(depth)
-            iterateAndChange(child, depth)
+            child.doNotDrawDepth.add(depth)
+            markDepthToBeNotDrawn(child, depth)
         }
         return
     }

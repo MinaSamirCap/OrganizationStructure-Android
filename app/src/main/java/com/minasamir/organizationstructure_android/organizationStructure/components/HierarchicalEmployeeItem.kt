@@ -24,7 +24,7 @@ fun HierarchicalEmployeeItem(
         modifier = Modifier
             .fillMaxWidth()
     ) {
-        // Left column for hierarchy lines and badge
+        // start side for hierarchy lines and badge
         HierarchyConnectors(
             depth = depth,
             isLastChild = isLastInSiblingGroup,
@@ -33,7 +33,7 @@ fun HierarchicalEmployeeItem(
 
         Spacer(modifier = Modifier.width(12.dp))
 
-        // Employee details column
+        // employee details
         EmployeeDetails(employee = employee)
     }
 }

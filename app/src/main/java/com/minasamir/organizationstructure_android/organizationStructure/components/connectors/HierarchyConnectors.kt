@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.minasamir.organizationstructure_android.organizationStructure.EmployeeUiModel
 import com.minasamir.organizationstructure_android.organizationStructure.complexEmployees
 import com.minasamir.organizationstructure_android.organizationStructure.components.badge.EmployeeBadge
-import com.minasamir.organizationstructure_android.organizationStructure.iterateAndChange
+import com.minasamir.organizationstructure_android.organizationStructure.markDepthToBeNotDrawn
 import com.minasamir.organizationstructure_android.ui.theme.OrganizationStructureAndroidTheme
 
 @Composable
@@ -60,7 +60,10 @@ fun HierarchyConnectors(
                                 .height(16.dp) // 16 is the half of the badge size
                         )
                     }
-                    iterateAndChange(employee, depth - 1)
+                    // when draw half of the badge, that means, tree ended here for that child
+                    // but, if that child has children, all connectors in the same depth
+                    // for the children should not be drawn at all.
+                    markDepthToBeNotDrawn(employee, depth - 1)
 
                 } else {
                     // draw full vertical line
@@ -69,7 +72,7 @@ fun HierarchyConnectors(
                             .width(34.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        if (!employee.doNotDraw.contains(i)) {
+                        if (!employee.doNotDrawDepth.contains(i)) {
                             ConnectorVerticalLine(
                                 modifier = Modifier
                                     .width(1.dp)
