@@ -21,8 +21,6 @@ fun ConnectorHorizontalLine(
     val isRTL = isRTL()
     Canvas(
         modifier = modifier
-            .height(1.dp)
-            .width(34.dp)
     ) {
         if (isRTL) {
             drawLine(
