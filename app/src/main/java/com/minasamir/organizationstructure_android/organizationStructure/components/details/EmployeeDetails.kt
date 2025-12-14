@@ -1,4 +1,4 @@
-package com.minasamir.organizationstructure_android.organizationStructure.components
+package com.minasamir.organizationstructure_android.organizationStructure.components.details
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,7 +14,7 @@ import com.minasamir.organizationstructure_android.organizationStructure.complex
 import com.minasamir.organizationstructure_android.ui.theme.OrganizationStructureAndroidTheme
 
 @Composable
-fun EmployeeDetailsColumn(
+fun EmployeeDetails(
     employee: EmployeeUiModel,
     modifier: Modifier = Modifier,
 ) {
@@ -38,8 +38,8 @@ fun EmployeeDetailsColumn(
 
 @Composable
 @Preview
-private fun EmployeeDetailsColumnPreview() {
+private fun EmployeeDetailsPreview() {
     OrganizationStructureAndroidTheme {
-        EmployeeDetailsColumn(complexEmployees.first())
+        EmployeeDetails(complexEmployees.first())
     }
 }

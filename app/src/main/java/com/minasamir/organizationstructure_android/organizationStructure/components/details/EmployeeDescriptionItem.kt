@@ -1,4 +1,4 @@
-package com.minasamir.organizationstructure_android.organizationStructure.components
+package com.minasamir.organizationstructure_android.organizationStructure.components.details
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer

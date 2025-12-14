@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.minasamir.organizationstructure_android.organizationStructure.EmployeeUiModel
 import com.minasamir.organizationstructure_android.organizationStructure.complexEmployees
+import com.minasamir.organizationstructure_android.organizationStructure.components.badge.EmployeeBadge
 import com.minasamir.organizationstructure_android.organizationStructure.isRTL
 import com.minasamir.organizationstructure_android.organizationStructure.iterateAndChange
 import com.minasamir.organizationstructure_android.ui.theme.OrganizationStructureAndroidTheme

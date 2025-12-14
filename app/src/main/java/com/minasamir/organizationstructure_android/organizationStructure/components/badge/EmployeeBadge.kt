@@ -1,4 +1,4 @@
-package com.minasamir.organizationstructure_android.organizationStructure.components
+package com.minasamir.organizationstructure_android.organizationStructure.components.badge
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

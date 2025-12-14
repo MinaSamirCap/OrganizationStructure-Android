@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.minasamir.organizationstructure_android.organizationStructure.components.HierarchicalEmployeeCard
+import com.minasamir.organizationstructure_android.organizationStructure.components.HierarchicalEmployeeItem
 import com.minasamir.organizationstructure_android.ui.theme.OrganizationStructureAndroidTheme
 
 @Composable
@@ -25,7 +25,7 @@ fun OrganizationStructure(
     ) {
         // Use items directly with flat list
         items(flattenHierarchy(complexEmployees)) { employee ->
-            HierarchicalEmployeeCard(
+            HierarchicalEmployeeItem(
                 employee = employee.item,
                 depth = employee.depth,
                 isLastInSiblingGroup = employee.isLastInSiblingGroup
